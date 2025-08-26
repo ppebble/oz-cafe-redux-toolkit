@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import data from '../assets/data';
 import { useDispatch } from 'react-redux';
+import { cartSlice } from '../redux/redux';
 
 function Cart() {
 	const menu = useSelector((state) => state.menu);
@@ -48,7 +49,7 @@ function CartItem({ item, options, quantity }) {
 			<button
 				className='cart-item-delete'
 				onClick={() => {
-					dispatch(cartSlice.actions.removeFromCart(item.id));
+					dispatch(cartSlice.actions.removeFromCart({ id: item.id }));
 				}}
 			>
 				삭제
